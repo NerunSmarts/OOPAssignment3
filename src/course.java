@@ -64,7 +64,7 @@ public class course {
                }
                for (course c2 : c.getPrerequisites()) {
                   if (c2.getCourseNumber() == this.courseNumber) {
-                     throw new IllegalArgumentException("A course cannot be a prerequisite for itself");
+                     throw new IllegalArgumentException("A course cannot be a prerequisite for itself through a chain of prerequisites");
                   }
                }
             }

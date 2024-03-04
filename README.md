@@ -17,3 +17,7 @@ There are a lot of classes in this project, here are some of them with a quick e
 ## Using this stupid program
 
 The main way to do anything in it right now is just download and change the damn `main` class. Stupid solution, I know, i'm not done writing it.
+
+## What I still need to do
+
+I really don't know! Well, I kinda do, but I don't really think the documentation i've recieved quite covers the ins and outs of what this is supposed to do.

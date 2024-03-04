@@ -12,6 +12,11 @@ public class student {
         this.uuid = uuid;
         this.schedules = schedules;
     }
+    public student(String firstName, String lastName, UUID uuid) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.uuid = uuid;
+    }
         public String getFirstName() {
             return firstName;
         }

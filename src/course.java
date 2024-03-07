@@ -45,11 +45,15 @@ public class course {
       }
 
       public course[] getPrerequisites() {
+
+         // @return
          return prerequisites;
       }
 
-      public void setPrerequisites(course[] prerequisites) {
-         
+      
+
+      public void setPrerequisites(course[] prerequisites) { // this will set the prerequisites for a course and also check that they're valid 
+         /*
          if (prerequisites.length > 5) {
             throw new IllegalArgumentException("A course cannot have more than 5 prerequisites");
          }
@@ -70,6 +74,8 @@ public class course {
             }
          }
          this.prerequisites = prerequisites;
+
+      */
       }
 
    }

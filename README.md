@@ -1,3 +1,9 @@
+## CHANGE OF PLANS EVERYONE
+
+Welp, this is kinda dumb. We got told to engineer a solution and then got told to just throw it out afterwards and use the teacher's solution... which isn't the best by a long stretch imo.
+
+WITH THAT BEING SAID, THIS DOCS PAGE WILL NOT BE ACCURATE ANYMORE FOR A WHILE. OR EVER. IDK.
+
 ## getting started with my mess of a coding project
 
 So I feel like this shouldn't really need to be said, but main.java is the main executable for the project.

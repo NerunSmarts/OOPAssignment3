@@ -1,51 +1,38 @@
-import java.util.UUID;
-public class student {
+public class Student {
 
-    private String firstName;
-    private String lastName;
-    private UUID uuid;
-    private schedule[] schedules;
+    private String name;
+    private int id;
+    private Schedule[] schedules;
+    private final static int MAX_SCHEDULES = 5;
+    private static int nextStudentId = 1;
 
-    public student(String firstName, String lastName, UUID uuid, schedule[] schedules) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.uuid = uuid;
-        this.schedules = schedules;
+    public Student(String name) {
+        this.name = name;
+        this.id = nextStudentId;
+        this.schedules = new Schedule[MAX_SCHEDULES];
+        nextStudentId++;
     }
-    public student(String firstName, String lastName, UUID uuid) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.uuid = uuid;
-    }
-        public String getFirstName() {
-            return firstName;
+        public String getName() {
+            return name;
         }
 
-        public void setFirstName(String firstName) {
-            this.firstName = firstName;
+        public void setName(String name) {
+            this.name = name;
         }
 
-        public String getLastName() {
-            return lastName;
+        public int getId() {
+            return id;
         }
 
-        public void setLastName(String lastName) {
-            this.lastName = lastName;
+        public void setId(int id) {
+            this.id = id;
         }
 
-        public UUID getUUID() {
-            return uuid;
-        }
-
-        public void setUUID(UUID uuid) {
-            this.uuid = uuid;
-        }
-
-        public schedule[] getSchedules() {
+        public Schedule[] getSchedules() {
             return schedules;
         }
 
-        public void setSchedules(schedule[] schedules) {
+        public void setSchedules(Schedule[] schedules) {
             this.schedules = schedules;
         }
     }

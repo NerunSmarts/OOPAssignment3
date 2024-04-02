@@ -1,81 +1,109 @@
-public class course {
-      private String courseName;
-      private int courseNumber;
-      private String program;
-      private int credits;
-      private course[] prerequisites;
+//package edu.cs2430.assignment3;
+public class Course {
+   /**
+    * The current index for the array of prerequisite courses.
+    */
+   private int currentPrerequisiteIndex;
+   /**
+    * A constant to represent the maximum size (5) of the prerequisite course array
+    */
+   private static final int MAX_PREREQUISITES = 5;
+   /**
+    * The course name.
+    */
+   private String name;
+   /**
+    * The course number.
+    */
+   private int number;
+   /**
+    * The number of credits for the course.
+    */
+   private int numberOfCredits;
+   /**
+    * An array of prerequisite courses.
+    */
+   private Course[] prerequisiteCourses;
+   /**
+    * The program the course belongs to
+    */
+   private Program program;
 
-      public course(String courseName, int courseNumber, String program, int credits, course[] prerequisites) {
-         this.courseName = courseName;
-         this.courseNumber = courseNumber;
-         this.program = program;
-         this.credits = credits;
-         this.prerequisites = prerequisites;
-      }
-      public String getCourseName() {
-         return courseName;
-      }
-
-      public void setCourseName(String courseName) {
-         this.courseName = courseName;
-      }
-
-      public int getCourseNumber() {
-         return courseNumber;
-      }
-
-      public void setCourseNumber(int courseNumber) {
-         this.courseNumber = courseNumber;
-      }
-
-      public String getProgram() {
-         return program;
-      }
-
-      public void setProgram(String program) {
-         this.program = program;
-      }
-
-      public int getCredits() {
-         return credits;
-      }
-
-      public void setCredits(int credits) {
-         this.credits = credits;
-      }
-
-      public course[] getPrerequisites() {
-
-         // @return
-         return prerequisites;
-      }
-
-      
-
-      public void setPrerequisites(course[] prerequisites) { // this will set the prerequisites for a course and also check that they're valid 
-         /*
-         if (prerequisites.length > 5) {
-            throw new IllegalArgumentException("A course cannot have more than 5 prerequisites");
-         }
-         
-         if (prerequisites.length > 0) {
-            for (course c : prerequisites) {
-               if (c == null) {
-                  throw new IllegalArgumentException("A course cannot have a null prerequisite");
-               }
-               if (c.getCourseNumber() == this.courseNumber) {
-                  throw new IllegalArgumentException("A course cannot be a prerequisite for itself");
-               }
-               for (course c2 : c.getPrerequisites()) {
-                  if (c2.getCourseNumber() == this.courseNumber) {
-                     throw new IllegalArgumentException("A course cannot be a prerequisite for itself through a chain of prerequisites");
-                  }
-               }
-            }
-         }
-         this.prerequisites = prerequisites;
-
-      */
-      }
-
+   public Course(String name, int number, Program program, int numberOfCredits){
+       this.name  = name;
+       this.number = number;
+       this.program = program;
+       this.numberOfCredits = numberOfCredits;
    }
+   public Course(String name, int number, Program program, int numberOfCredits, Course[] prerequisiteCourses){
+       this.name  = name;
+       this.number = number;
+       this.program = program;
+       this.numberOfCredits = numberOfCredits;
+       this.prerequisiteCourses = new Course[MAX_PREREQUISITES];
+       for(int i=0;i<prerequisiteCourses.length;i++){
+           this.prerequisiteCourses[i] = prerequisiteCourses[i];
+       }
+   }
+   public boolean addPrerequisiteCourse(Course prerequisiteCourse){
+       int temp = 0;
+       for(Course c : prerequisiteCourses){
+           if (c != null) {
+               temp += 1;
+           }
+       }
+       if(validateAddPrerequisiteCourse(prerequisiteCourse)){
+           prerequisiteCourses[temp] = prerequisiteCourse;
+           return true;
+       }
+       else{
+           return false;
+       }
+   }
+   public boolean containsPrerequisite(Course prerequisiteCourse){
+       boolean contains = false;
+       for (Course c : prerequisiteCourses){
+           if (c == prerequisiteCourse) {
+               contains = true;
+               break;
+           }
+       }
+       return contains;
+   }
+   //public boolean containsPrerequisiteCycle(Course prerequisiteCourse){}
+   //I couldn't figure this one out.
+   public String getName(){return this.name;}
+   public int getNumber(){return this.number;}
+   public int getNumberOfCredits(){return this.numberOfCredits;}
+   public Course[] getPrerequisiteCourses(){return prerequisiteCourses;}
+   public Program getProgram(){return program;}
+   public void setName(String name){this.name = name;}
+   public void setNumber(int number){this.number = number;}
+   public void setNumberOfCredits(int numberOfCredits){this.numberOfCredits = numberOfCredits;}
+   public void setProgram(Program program){this.program = program;}
+   private boolean validateAddPrerequisiteCourse(Course prerequisiteCourse){
+       boolean valid = true;
+       if(prerequisiteCourse == null){
+           valid = false;
+       }
+       if(prerequisiteCourse.name.equals(this.name) && prerequisiteCourse.program.equals(this.program)){
+           valid = false;
+       }
+       int prerequisiteCoursesInArray = 0;
+       for(int i=0;i<prerequisiteCourses.length;i++){
+           if(prerequisiteCourses[i] != null){
+               prerequisiteCoursesInArray += 1;
+           }
+       }
+       if(prerequisiteCoursesInArray>4){
+           valid = false;
+       }
+       for (Course c : prerequisiteCourses){
+           if (c == prerequisiteCourse) {
+               valid = false;
+               break;
+           }
+       }
+       return valid;
+   }
+}

@@ -70,7 +70,19 @@ public class Course {
        }
        return contains;
    }
-   //public boolean containsPrerequisiteCycle(Course prerequisiteCourse){}
+   public boolean containsPrerequisiteCycle(Course prerequisiteCourse){
+         boolean contains = false;
+         for (Course c : prerequisiteCourses){
+              if (c == prerequisiteCourse) {
+                contains = true;
+                break;
+              }
+              else{
+                contains = c.containsPrerequisiteCycle(prerequisiteCourse);
+              }
+         }
+         return contains;
+   }
    //I couldn't figure this one out.
    public String getName(){return this.name;}
    public int getNumber(){return this.number;}

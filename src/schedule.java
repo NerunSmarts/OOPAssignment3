@@ -20,7 +20,7 @@ public class Schedule {
 
     public UUID getUuid() {return uuid;}
     public int getStudentId() {return studentId;}
-    public ScheduleEntry getScheduleEntryIndex(int index) {return scheduleEntries[index];}
+    public ScheduleEntry getScheduleEntry(int index) {return scheduleEntries[index];}
     public boolean addScheduleEntry(ScheduleEntry scheduleEntry) {
         boolean contains = false;
         for (ScheduleEntry c : scheduleEntries) {
@@ -36,4 +36,88 @@ public class Schedule {
             return false;
         }
     }
+    private void removeScheduleEntry(int index) {
+        scheduleEntries[index] = null;
+    }
+    public boolean removeScheduleEntry(ScheduleEntry scheduleEntry) {
+        boolean contains = false;
+        for (ScheduleEntry c : scheduleEntries) {
+            if (scheduleEntry == c) {
+                contains = true;
+            }
+        }
+        if (contains) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean removeScheduleEntry(UUID uuid) {
+        boolean contains = false;
+        for (ScheduleEntry c : scheduleEntries) {
+            if (uuid == c.getUuid()) {
+                contains = true;
+                c = null;
+            }
+        }
+        if (contains) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean isCourseInSchedule(Course course) {
+        boolean contains = false;
+        for (ScheduleEntry c : scheduleEntries) {
+            if (course == c.getCourse()) {
+                contains = true;
+            }
+        }
+        if (contains) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public int calculateCredits() {
+        int credits = 0;
+        for (ScheduleEntry c : scheduleEntries) {
+            credits += c.getCourse().getNumberOfCredits();
+        }
+        return credits;
+    }
+    public int calculateCredits(Semester semester, int year) {
+        int credits = 0;
+        for (ScheduleEntry c : scheduleEntries) {
+            if (c.getSemester() == semester && c.getYear() == year) {
+                credits += c.getCourse().getNumberOfCredits();
+            }
+        }
+        return credits;
+    }
+
+    public Course[] getCoursesForSemester(Semester semester, int year) {
+        int numOfCourses = 0;
+        for (ScheduleEntry c : scheduleEntries) {
+            if (c.getSemester() == semester && c.getYear() == year) {
+                numOfCourses += 1;
+            }
+        }
+        Course[] courses = new Course[numOfCourses];
+        int temp = 0;
+        for (ScheduleEntry c : scheduleEntries) {
+            if (c.getSemester() == semester && c.getYear() == year) {
+                courses[temp] = c.getCourse();
+                temp += 1;
+            }
+        }
+        return courses;
+    }
+
 }

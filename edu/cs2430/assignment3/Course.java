@@ -36,6 +36,7 @@ public class Course {
        this.program = program;
        this.numberOfCredits = numberOfCredits;
        this.prerequisiteCourses = new Course[MAX_PREREQUISITES];
+       currentPrerequisiteIndex = 0;
    }
    public Course(String name, int number, Program program, int numberOfCredits, Course[] prerequisiteCourses){
        this.name  = name;

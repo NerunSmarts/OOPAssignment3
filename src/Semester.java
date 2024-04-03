@@ -1,4 +1,4 @@
-package edu.cs2430.assignment3.CoursePlanningSystem;
+package edu.cs2430.assignment3;
 
 /**
  * Enumeration for all the possible semesters at The UU.

@@ -1,5 +1,11 @@
 package edu.cs2430.assignment3.CoursePlanningSystem;
 
+import edu.cs2430.assignment3.Course;
+import edu.cs2430.assignment3.Program;
+import edu.cs2430.assignment3.Schedule;
+import edu.cs2430.assignment3.ScheduleEntry;
+import edu.cs2430.assignment3.Student;
+
 import java.util.UUID;
 public class CoursePlanningSystem {
     private static final int ARRAY_MAX = 1000;

@@ -1,4 +1,5 @@
 package edu.cs2430.assignment3;
+
 public class Course {
    /**
     * The current index for the array of prerequisite courses.
@@ -46,17 +47,17 @@ public class Course {
        }
    }
    public boolean addPrerequisiteCourse(Course prerequisiteCourse){
-       int temp = 0;
+       currentPrerequisiteIndex = 0;
        if (prerequisiteCourses == null) {
         prerequisiteCourses = new Course[MAX_PREREQUISITES];
        }
        for(Course c : prerequisiteCourses){
            if (c != null){
-             temp++;
+             currentPrerequisiteIndex++;
            }
        }
        if(validateAddPrerequisiteCourse(prerequisiteCourse)){
-           prerequisiteCourses[temp] = prerequisiteCourse;
+           prerequisiteCourses[currentPrerequisiteIndex] = prerequisiteCourse;
            return true;
        }
        else {

@@ -35,6 +35,7 @@ public class Course {
        this.number = number;
        this.program = program;
        this.numberOfCredits = numberOfCredits;
+       this.prerequisiteCourses = new Course[MAX_PREREQUISITES];
    }
    public Course(String name, int number, Program program, int numberOfCredits, Course[] prerequisiteCourses){
        this.name  = name;
@@ -48,9 +49,6 @@ public class Course {
    }
    public boolean addPrerequisiteCourse(Course prerequisiteCourse){
        currentPrerequisiteIndex = 0;
-       if (prerequisiteCourses == null) {
-        prerequisiteCourses = new Course[MAX_PREREQUISITES];
-       }
        for(Course c : prerequisiteCourses){
            if (c != null){
              currentPrerequisiteIndex++;

@@ -9,7 +9,11 @@ public class CoursePlanningSystem {
     private Schedule[] schedules;
     private int studentIndex;
     private Student[] students;
-    private int scheduleIndex;
+
+    /*
+     * @author 1: Jonah Gjersvig - 50%ish
+     * @author 2: Jack Wilburn - 50%ish as well
+     */
 
     public CoursePlanningSystem() {
         this.courseIndex = 0;

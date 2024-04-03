@@ -1,4 +1,6 @@
 package edu.cs2430.assignment3.CoursePlanningSystem;
+
+import java.util.UUID;
 public class CoursePlanningSystem {
     private static final int ARRAY_MAX = 1000;
     private int courseIndex;
@@ -7,6 +9,7 @@ public class CoursePlanningSystem {
     private Schedule[] schedules;
     private int studentIndex;
     private Student[] students;
+    private int scheduleIndex;
 
     public CoursePlanningSystem() {
         this.courseIndex = 0;

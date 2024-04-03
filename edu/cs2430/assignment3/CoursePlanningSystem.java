@@ -1,4 +1,4 @@
-package edu.cs2430.assignment3.CoursePlanningSystem;
+package edu.cs2430.assignment3;
 
 import edu.cs2430.assignment3.Course;
 import edu.cs2430.assignment3.Program;

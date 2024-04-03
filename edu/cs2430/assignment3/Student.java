@@ -6,6 +6,7 @@ public class Student {
     private Schedule[] schedules;
     private final static int MAX_SCHEDULES = 5;
     private static int nextStudentId = 1;
+    private int scheduleIndex;
 
     public Student(String name) {
         this.name = name;

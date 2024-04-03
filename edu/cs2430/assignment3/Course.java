@@ -53,6 +53,8 @@ public class Course {
        for(Course c : prerequisiteCourses){
            if (c != null) {
                temp += 1;
+           } else {
+            c = prerequisiteCourse;
            }
        }
        if(validateAddPrerequisiteCourse(prerequisiteCourse)){

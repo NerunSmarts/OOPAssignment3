@@ -1,3 +1,4 @@
+package edu.cs2430.assignment3;
 import java.util.UUID;
 
 public class Schedule {

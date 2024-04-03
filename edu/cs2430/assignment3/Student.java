@@ -1,4 +1,4 @@
-package edu.cs2430.assignment3.CoursePlanningSystem;
+package edu.cs2430.assignment3;
 public class Student {
 
     private String name;

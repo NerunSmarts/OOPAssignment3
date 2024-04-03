@@ -1,4 +1,4 @@
-//package edu.cs2430.assignment3;
+package edu.cs2430.assignment3;
 
 /**
  * Enumeration for all the possible programs at The UU.

@@ -40,11 +40,12 @@ public class Schedule {
     private void removeScheduleEntry(int index) {
         scheduleEntries[index] = null;
     }
-    public boolean removeScheduleEntry(ScheduleEntry scheduleEntry) {
+    public boolean removeScheduleEntry(Course course) {
         boolean contains = false;
         for (ScheduleEntry c : scheduleEntries) {
-            if (scheduleEntry == c) {
+            if (course == c.getCourse()) {
                 contains = true;
+                c = null;
             }
         }
         if (contains) {

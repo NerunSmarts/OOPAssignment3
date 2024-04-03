@@ -1,4 +1,4 @@
-//package edu.cs2430.assignment3;
+package edu.cs2430.assignment3;
 import java.util.UUID;
 public final class ScheduleEntry {
     private final Course course;

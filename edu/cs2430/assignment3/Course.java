@@ -47,7 +47,7 @@ public class Course {
    }
    public boolean addPrerequisiteCourse(Course prerequisiteCourse){
        int temp = 0;
-       if (prerequisiteCourses != null) {
+       if (prerequisiteCourses == null) {
         prerequisiteCourses = new Course[MAX_PREREQUISITES];
        }
        for(Course c : prerequisiteCourses){

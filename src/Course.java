@@ -1,4 +1,4 @@
-//package edu.cs2430.assignment3;
+package edu.cs2430.assignment3;
 public class Course {
    /**
     * The current index for the array of prerequisite courses.

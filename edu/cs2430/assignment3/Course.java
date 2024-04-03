@@ -47,6 +47,7 @@ public class Course {
    }
    public boolean addPrerequisiteCourse(Course prerequisiteCourse){
        int temp = 0;
+       if (prerequisiteCourses != null) {
        for(Course c : prerequisiteCourses){
            if (c != null) {
                temp += 1;
@@ -59,6 +60,7 @@ public class Course {
        else{
            return false;
        }
+    } else { return false; }
    }
    public boolean containsPrerequisite(Course prerequisiteCourse){
        boolean contains = false;

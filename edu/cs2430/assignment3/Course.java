@@ -51,17 +51,15 @@ public class Course {
         prerequisiteCourses = new Course[MAX_PREREQUISITES];
        }
        for(Course c : prerequisiteCourses){
-           if (c != null) {
-               temp += 1;
-           } else {
-            c = prerequisiteCourse;
+           if (c != null){
+             temp++;
            }
        }
        if(validateAddPrerequisiteCourse(prerequisiteCourse)){
            prerequisiteCourses[temp] = prerequisiteCourse;
            return true;
        }
-       else{
+       else {
            return false;
        }
     
@@ -100,11 +98,11 @@ public class Course {
    public void setNumberOfCredits(int numberOfCredits){this.numberOfCredits = numberOfCredits;}
    public void setProgram(Program program){this.program = program;}
    private boolean validateAddPrerequisiteCourse(Course prerequisiteCourse){
-       boolean valid = true;
-       if(prerequisiteCourse == null){
-           valid = false;
-       } else {
-            if(prerequisiteCourse.name.equals(this.name) && prerequisiteCourse.program.equals(this.program)){
+       boolean valid;
+       if(prerequisiteCourse != null){
+           valid = true;
+           
+           if(prerequisiteCourse.name.equals(this.name) && prerequisiteCourse.program.equals(this.program)){
                 valid = false;
             }
             int prerequisiteCoursesInArray = 0;
@@ -116,12 +114,8 @@ public class Course {
             if(prerequisiteCoursesInArray>4){
                 valid = false;
             }
-            for (Course c : prerequisiteCourses){
-                if (c == prerequisiteCourse) {
-                    valid = false;
-                    break;
-                }
-            }
+       } else {
+            valid = false;
         }
         return valid;
    }

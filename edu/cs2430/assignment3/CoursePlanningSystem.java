@@ -86,6 +86,18 @@ public class CoursePlanningSystem {
         return null;
     }
 
+    public Schedule[] getSchedulesByStudentId(int studentId) {
+        Schedule[] studentSchedules = new Schedule[ARRAY_MAX];
+        int studentScheduleIndex = 0;
+        for (Schedule s : schedules) {
+            if (s.getStudentId() == studentId) {
+                studentSchedules[studentScheduleIndex] = s;
+                studentScheduleIndex++;
+            }
+        }
+        return studentSchedules;
+    }
+
     public Schedule[] getSchedules() {
         return schedules;
     }

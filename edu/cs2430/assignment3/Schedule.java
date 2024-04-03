@@ -72,6 +72,22 @@ public class Schedule {
         }
     }
 
+    public boolean removeScheduleEntry(ScheduleEntry scheduleEntry) {
+        boolean contains = false;
+        for (ScheduleEntry c : scheduleEntries) {
+            if (scheduleEntry == c) {
+                contains = true;
+                c = null;
+            }
+        }
+        if (contains) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     public boolean isCourseInSchedule(Course course) {
         boolean contains = false;
         for (ScheduleEntry c : scheduleEntries) {
@@ -120,6 +136,10 @@ public class Schedule {
             }
         }
         return courses;
+    }
+
+    public ScheduleEntry[] getScheduleEntries() {
+        return scheduleEntries;
     }
 
 }

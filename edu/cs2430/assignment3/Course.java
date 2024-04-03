@@ -112,7 +112,7 @@ public class Course {
                     prerequisiteCoursesInArray += 1;
                 }
             }
-            if(prerequisiteCoursesInArray>5){
+            if(prerequisiteCoursesInArray>4){
                 valid = false;
             }
        } else {

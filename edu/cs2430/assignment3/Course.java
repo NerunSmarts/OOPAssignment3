@@ -71,9 +71,11 @@ public class Course {
    public boolean containsPrerequisite(Course prerequisiteCourse){
        boolean contains = false;
        for (Course c : prerequisiteCourses){
-           if (c.getProgram().equals(prerequisiteCourse.getProgram()) && c.getName().equals(prerequisiteCourse.getName())) {
-               contains = true;
-               break;
+           if(c != null){
+               if (c.getProgram().equals(prerequisiteCourse.getProgram()) && c.getName().equals(prerequisiteCourse.getName())) {
+                   contains = true;
+                   break;
+               }
            }
        }
        return contains;

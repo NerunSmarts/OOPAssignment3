@@ -61,9 +61,11 @@ public class Schedule {
     public boolean removeScheduleEntry(UUID uuid) {
         boolean contains = false;
         for (ScheduleEntry c : scheduleEntries) {
-            if (uuid == c.getUuid()) {
-                contains = true;
-                c = null;
+            if (c != null) {
+                if (uuid == c.getUuid()) {
+                    contains = true;
+                    c = null;
+                }
             }
         }
         if (contains) {

@@ -90,15 +90,17 @@ public class Schedule {
 
     public boolean removeScheduleEntry(UUID uuid) {
         boolean contains = false;
+        int temp = -1;
         for (ScheduleEntry c : scheduleEntries) {
             if (c != null) {
                 if (uuid == c.getUuid()) {
+                    temp++;
                     contains = true;
-                    c = null;
                 }
             }
         }
         if (contains) {
+            removeScheduleEntry(temp);
             return true;
         }
         else{
@@ -108,13 +110,15 @@ public class Schedule {
 
     public boolean removeScheduleEntry(ScheduleEntry scheduleEntry) {
         boolean contains = false;
+        int temp = -1;
         for (ScheduleEntry c : scheduleEntries) {
             if (scheduleEntry == c) {
+                temp++;
                 contains = true;
-                c = null;
             }
         }
         if (contains) {
+            removeScheduleEntry(temp);
             return true;
         }
         else{

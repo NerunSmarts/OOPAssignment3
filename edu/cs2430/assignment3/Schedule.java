@@ -110,7 +110,9 @@ public class Schedule {
     public int calculateCredits() {
         int credits = 0;
         for (ScheduleEntry c : scheduleEntries) {
-            credits += c.getCourse().getNumberOfCredits();
+            if (c != null) {
+                credits += c.getCourse().getNumberOfCredits();
+            }
         }
         return credits;
     }

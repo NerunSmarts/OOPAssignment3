@@ -36,6 +36,13 @@ public class Student {
 
         public void setSchedules(Schedule[] schedules) {
             this.schedules = schedules;
+
+            scheduleIndex = 0;
+            for (Schedule s : schedules) {
+                if (s != null) {
+                    scheduleIndex++;
+                }
+            }
         }
     }
     

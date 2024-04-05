@@ -30,7 +30,8 @@ public class Schedule {
             }
         }
         if (scheduleEntries.length < MAX_SCHEDULE_ENTRY && !contains) {
-
+            scheduleEntries[scheduleEntryIndex] = scheduleEntry;
+            scheduleEntryIndex++;
             return true;
         }
         else{

@@ -177,13 +177,14 @@ public class CoursePlanningSystem {
     
         if (index != -1) {
             Student[] newStudents = new Student[students.length - 1];
-            for (int i = 0, j = 0; i < students.length; i++) {
+            int newStudentIndex = 0;
+            for (int i = 0; i < students.length; i++) {
                 if (i == index) {
                     continue;
                 }
-                newStudents[j++] = students[i];
+                newStudents[newStudentIndex++] = students[i];
             }
-            studentIndex = newStudents.length;
+            studentIndex = newStudentIndex;
             students = newStudents;
             return true;
         }

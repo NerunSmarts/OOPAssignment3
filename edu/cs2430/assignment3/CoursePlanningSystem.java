@@ -183,6 +183,7 @@ public class CoursePlanningSystem {
                 }
                 newStudents[j++] = students[i];
             }
+            studentIndex = newStudents.length;
             students = newStudents;
             return true;
         }

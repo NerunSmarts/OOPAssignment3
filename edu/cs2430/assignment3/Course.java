@@ -68,7 +68,7 @@ public class Course {
    public boolean containsPrerequisite(Course prerequisiteCourse){
        boolean contains = false;
        for (Course c : prerequisiteCourses){
-           if (c == prerequisiteCourse) {
+           if (c.getProgram().equals(prerequisiteCourse.getProgram()) && c.getName().equals(prerequisiteCourse.getName())) {
                contains = true;
                break;
            }
@@ -78,7 +78,7 @@ public class Course {
    public boolean containsPrerequisiteCycle(Course prerequisiteCourse){
          boolean contains = false;
          for (Course c : prerequisiteCourses){
-              if (c.getProgram().equals(prerequisiteCourse.getProgram()) && c.getName().equals(prerequisiteCourse.getName())) {
+              if (c == prerequisiteCourse) {
                 contains = true;
                 break;
               }
@@ -103,7 +103,7 @@ public class Course {
        if(prerequisiteCourse != null){
            valid = true;
            
-           if(prerequisiteCourse.name.equals(this.name) && prerequisiteCourse.program.equals(this.program)){
+           if(this.getName().equals(prerequisiteCourse.getName()) && this.getProgram().equals(prerequisiteCourse.getProgram())){
                 valid = false;
             }
             int prerequisiteCoursesInArray = 0;
@@ -115,13 +115,10 @@ public class Course {
             if(prerequisiteCoursesInArray>4){
                 valid = false;
             }
-            
        } else {
             valid = false;
         }
-        if(containsPrerequisite(prerequisiteCourse)){
-                valid = false;
-            }
-        return valid;
+       if(containsPrerequisite(prerequisiteCourse)){valid = false;}
+       return valid;
    }
 }

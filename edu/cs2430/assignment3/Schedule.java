@@ -43,9 +43,11 @@ public class Schedule {
     public boolean removeScheduleEntry(Course course) {
         boolean contains = false;
         for (ScheduleEntry c : scheduleEntries) {
-            if (course == c.getCourse()) {
-                contains = true;
-                c = null;
+            if (c != null) {
+                if (course == c.getCourse()) {
+                    contains = true;
+                    c = null;
+                }
             }
         }
         if (contains) {
@@ -91,8 +93,10 @@ public class Schedule {
     public boolean isCourseInSchedule(Course course) {
         boolean contains = false;
         for (ScheduleEntry c : scheduleEntries) {
-            if (course == c.getCourse()) {
-                contains = true;
+            if (c != null) {
+                if (course == c.getCourse()) {
+                    contains = true;
+                }
             }
         }
         if (contains) {
@@ -113,8 +117,10 @@ public class Schedule {
     public int calculateCredits(Semester semester, int year) {
         int credits = 0;
         for (ScheduleEntry c : scheduleEntries) {
-            if (c.getSemester() == semester && c.getYear() == year) {
-                credits += c.getCourse().getNumberOfCredits();
+            if (c != null) {
+                if (c.getSemester() == semester && c.getYear() == year) {
+                    credits += c.getCourse().getNumberOfCredits();
+                }
             }
         }
         return credits;
@@ -123,16 +129,20 @@ public class Schedule {
     public Course[] getCoursesForSemester(Semester semester, int year) {
         int numOfCourses = 0;
         for (ScheduleEntry c : scheduleEntries) {
-            if (c.getSemester() == semester && c.getYear() == year) {
-                numOfCourses += 1;
+            if (c != null) {
+                if (c.getSemester() == semester && c.getYear() == year) {
+                    numOfCourses += 1;
+                }
             }
         }
         Course[] courses = new Course[numOfCourses];
         int temp = 0;
         for (ScheduleEntry c : scheduleEntries) {
-            if (c.getSemester() == semester && c.getYear() == year) {
-                courses[temp] = c.getCourse();
-                temp += 1;
+            if (c != null) {
+                if (c.getSemester() == semester && c.getYear() == year) {
+                    courses[temp] = c.getCourse();
+                    temp += 1;
+                }
             }
         }
         return courses;

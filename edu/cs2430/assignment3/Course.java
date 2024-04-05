@@ -55,15 +55,18 @@ public class Course {
              currentPrerequisiteIndex++;
            }
        }
-       if(validateAddPrerequisiteCourse(prerequisiteCourse)){
-           prerequisiteCourses[currentPrerequisiteIndex] = prerequisiteCourse;
-           currentPrerequisiteIndex++;
-           return true;
-       }
-       else {
-           return false;
-       }
-    
+        if(prerequisiteCourse != null){
+            if(validateAddPrerequisiteCourse(prerequisiteCourse)){
+                prerequisiteCourses[currentPrerequisiteIndex] = prerequisiteCourse;
+                currentPrerequisiteIndex++;
+                return true;
+            }
+            else {
+                return false;
+            }
+        } else {
+            return false;
+        }
    }
    public boolean containsPrerequisite(Course prerequisiteCourse){
        boolean contains = false;

@@ -109,8 +109,6 @@ public class CoursePlanningSystem {
         }
         return studentSchedules;
     }
-        return studentSchedules;
-    }
 
     public Schedule[] getSchedules() {
         return schedules;

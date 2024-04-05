@@ -184,7 +184,14 @@ public class CoursePlanningSystem {
                 }
                 newStudents[newStudentIndex++] = students[i];
             }
-            studentIndex = newStudentIndex;
+
+            int tempIndex = 0;
+            for (Student s : students) {
+                if (s != null) {
+                    tempIndex++;
+                }
+            }
+            studentIndex = tempIndex;
             students = newStudents;
             return true;
         }

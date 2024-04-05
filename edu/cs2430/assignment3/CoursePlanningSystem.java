@@ -66,8 +66,10 @@ public class CoursePlanningSystem {
 
     public Course getCourse(int courseNumber, Program program) {
         for (Course c : courses) {
-            if (c.getNumber() == courseNumber && c.getProgram() == program) {
-                return c;
+            if (c != null) {
+                if (c.getNumber() == courseNumber && c.getProgram() == program) {
+                    return c;
+                }
             }
         }
         return null;
@@ -90,9 +92,11 @@ public class CoursePlanningSystem {
         Schedule[] studentSchedules = new Schedule[ARRAY_MAX];
         int studentScheduleIndex = 0;
         for (Schedule s : schedules) {
-            if (s.getStudentId() == studentId) {
-                studentSchedules[studentScheduleIndex] = s;
-                studentScheduleIndex++;
+            if (s != null) {
+                if (s.getStudentId() == studentId) {
+                    studentSchedules[studentScheduleIndex] = s;
+                    studentScheduleIndex++;
+                }
             }
         }
         return studentSchedules;
@@ -104,8 +108,10 @@ public class CoursePlanningSystem {
 
     public Student getStudent(int studentId) {
         for (Student s : students) {
-            if (s.getId() == studentId) {
-                return s;
+            if (s != null){
+                if (s.getId() == studentId) {
+                    return s;
+                }
             }
         }
         return null;
@@ -154,9 +160,11 @@ public class CoursePlanningSystem {
 
     public boolean removeStudent(int studentId) {
         for (Student s : students) {
-            if (s.getId() == studentId) {
-                s = null;
-                return true;
+            if (s != null) {
+                if (s.getId() == studentId) {
+                    s = null;
+                    return true;
+                }
             }
         }
         return false;

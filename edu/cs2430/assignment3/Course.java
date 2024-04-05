@@ -78,7 +78,7 @@ public class Course {
    public boolean containsPrerequisiteCycle(Course prerequisiteCourse){
          boolean contains = false;
          for (Course c : prerequisiteCourses){
-              if (c == prerequisiteCourse) {
+              if (c.getProgram().equals(prerequisiteCourse.getProgram()) && c.getName().equals(prerequisiteCourse.getName())) {
                 contains = true;
                 break;
               }
@@ -113,6 +113,9 @@ public class Course {
                 }
             }
             if(prerequisiteCoursesInArray>4){
+                valid = false;
+            }
+            if(containsPrerequisite(prerequisiteCourse)){
                 valid = false;
             }
        } else {

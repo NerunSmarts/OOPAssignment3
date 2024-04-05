@@ -14,6 +14,8 @@ public class CoursePlanningSystem {
     /*
      * @author 1: Jonah Gjersvig - 50%ish
      * @author 2: Jack Wilburn - 50%ish as well
+     * 
+     * we both spent way too long debugging this
      */
 
     public CoursePlanningSystem() {
@@ -89,7 +91,13 @@ public class CoursePlanningSystem {
     }
 
     public Schedule[] getSchedulesByStudentId(int studentId) {
-        Schedule[] studentSchedules = new Schedule[ARRAY_MAX];
+        int scheduleLength = 0;
+        for (Schedule s : schedules) {
+            if (s != null) {
+                scheduleLength++;
+            }
+        }
+        Schedule[] studentSchedules = new Schedule[scheduleLength];
         int studentScheduleIndex = 0;
         for (Schedule s : schedules) {
             if (s != null) {

@@ -93,7 +93,7 @@ public class CoursePlanningSystem {
     public Schedule[] getSchedulesByStudentId(int studentId) {
         int scheduleLength = 0;
         for (Schedule s : schedules) {
-            if (s != null) {
+            if (s != null && s.getStudentId() == studentId) {
                 scheduleLength++;
             }
         }
@@ -107,6 +107,8 @@ public class CoursePlanningSystem {
                 }
             }
         }
+        return studentSchedules;
+    }
         return studentSchedules;
     }
 

@@ -167,14 +167,26 @@ public class CoursePlanningSystem {
     }
 
     public boolean removeStudent(int studentId) {
-        for (Student s : students) {
-            if (s != null) {
-                if (s.getId() == studentId) {
-                    s = null;
-                    return true;
-                }
+        int index = -1;
+        for (int i = 0; i < students.length; i++) {
+            if (students[i] != null && students[i].getId() == studentId) {
+                index = i;
+                break;
             }
         }
+    
+        if (index != -1) {
+            Student[] newStudents = new Student[students.length - 1];
+            for (int i = 0, j = 0; i < students.length; i++) {
+                if (i == index) {
+                    continue;
+                }
+                newStudents[j++] = students[i];
+            }
+            students = newStudents;
+            return true;
+        }
+    
         return false;
     }
 

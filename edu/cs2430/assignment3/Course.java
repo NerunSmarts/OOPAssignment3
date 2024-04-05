@@ -57,6 +57,7 @@ public class Course {
        }
        if(validateAddPrerequisiteCourse(prerequisiteCourse)){
            prerequisiteCourses[currentPrerequisiteIndex] = prerequisiteCourse;
+           currentPrerequisiteIndex++;
            return true;
        }
        else {

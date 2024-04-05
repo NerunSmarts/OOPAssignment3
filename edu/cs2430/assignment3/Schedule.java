@@ -43,15 +43,18 @@ public class Schedule {
     }
     public boolean removeScheduleEntry(Course course) {
         boolean contains = false;
+        int temp = -1;
         for (ScheduleEntry c : scheduleEntries) {
+           temp++;
             if (c != null) {
                 if (course == c.getCourse()) {
                     contains = true;
-                    c = null;
+                    break;
                 }
             }
         }
         if (contains) {
+            removeScheduleEntry(temp);
             return true;
         }
         else{

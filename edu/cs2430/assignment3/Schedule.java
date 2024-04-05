@@ -29,7 +29,7 @@ public class Schedule {
                 contains = true;
             }
         }
-        if (scheduleEntries.length < MAX_SCHEDULE_ENTRY && !contains) {
+        if (scheduleEntryIndex < MAX_SCHEDULE_ENTRY && !contains) {
             scheduleEntries[scheduleEntryIndex] = scheduleEntry;
             scheduleEntryIndex++;
             return true;

@@ -115,10 +115,13 @@ public class Course {
             if(prerequisiteCoursesInArray>4){
                 valid = false;
             }
+            if(containsPrerequisite(prerequisiteCourse)){
+                valid = false;
+            }
        } else {
             valid = false;
         }
-       if(containsPrerequisite(prerequisiteCourse)){valid = false;}
+       
        return valid;
    }
 }

@@ -39,7 +39,15 @@ public class Schedule {
         }
     }
     private void removeScheduleEntry(int index) {
-        scheduleEntries[index] = null;
+        
+        if (index >= 0 && index < scheduleEntryIndex) {
+            for (int i = index; i < scheduleEntryIndex - 1; i++) {
+                scheduleEntries[i] = scheduleEntries[i + 1];
+            }
+            scheduleEntries[scheduleEntryIndex - 1] = null;
+            scheduleEntryIndex--;
+        }
+        
     }
     public boolean removeScheduleEntry(Course course) {
         boolean contains = false;

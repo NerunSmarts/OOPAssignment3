@@ -57,6 +57,13 @@ public class Schedule {
                 }
                 newScheduleEntries[newScheduleIndex++] = scheduleEntries[i];
             }
+            int tempScheduleIndex = 0;
+            for (ScheduleEntry s : newScheduleEntries) {
+                if (s != null) {
+                    tempScheduleIndex++;
+                }
+            }
+            scheduleEntryIndex = tempScheduleIndex;
             scheduleEntries = newScheduleEntries;
         }
     }

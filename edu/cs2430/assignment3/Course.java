@@ -46,6 +46,7 @@ public class Course {
        this.prerequisiteCourses = new Course[MAX_PREREQUISITES];
        for(int i=0;i<prerequisiteCourses.length;i++){
            this.prerequisiteCourses[i] = prerequisiteCourses[i];
+           currentPrerequisiteIndex++;
        }
    }
    public boolean addPrerequisiteCourse(Course prerequisiteCourse){

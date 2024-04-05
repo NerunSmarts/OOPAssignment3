@@ -40,14 +40,25 @@ public class Schedule {
     }
     private void removeScheduleEntry(int index) {
         
-        if (index >= 0 && index < scheduleEntryIndex) {
-            for (int i = index; i < scheduleEntryIndex - 1; i++) {
-                scheduleEntries[i] = scheduleEntries[i + 1];
+        int tIndex = -1;
+        for (int i = 0; i < scheduleEntries.length; i++) {
+            if (scheduleEntries[i] != null && i == index) {
+                tIndex = i;
+                break;
             }
-            scheduleEntries[scheduleEntryIndex - 1] = null;
-            scheduleEntryIndex--;
         }
-        
+    
+        if (tIndex != -1) {
+            ScheduleEntry[] newScheduleEntries = new ScheduleEntry[MAX_SCHEDULE_ENTRY];
+            int newScheduleIndex = 0;
+            for (int i = 0; i < MAX_SCHEDULE_ENTRY; i++) {
+                if (i == index) {
+                    continue;
+                }
+                newScheduleEntries[newScheduleIndex++] = scheduleEntries[i];
+            }
+            scheduleEntries = newScheduleEntries;
+        }
     }
     public boolean removeScheduleEntry(Course course) {
         boolean contains = false;

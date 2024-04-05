@@ -186,7 +186,7 @@ public class CoursePlanningSystem {
             }
 
             int tempIndex = 0;
-            for (Student s : students) {
+            for (Student s : newStudents) {
                 if (s != null) {
                     tempIndex++;
                 }
